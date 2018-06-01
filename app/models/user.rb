@@ -85,6 +85,9 @@ class User
   validates :name, presence: true
   validate :secure_password
 
+  TIME_BEFORE_INACTIVE = 2.weeks
+  TIME_BEFORE_DISABLED_BY_FUND = 9.months
+
   def secure_password
     return true if password.nil?
     pc = verify_password_complexity
